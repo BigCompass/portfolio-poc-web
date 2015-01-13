@@ -15,6 +15,9 @@
   </form>
   <ul class="nav navbar-nav navbar-right">
     <li ng-show="signedIn()">
+      <p class="navbar-text">{{ user.email }}</p>
+    </li>
+    <li ng-show="signedIn()">
       <a href="#" ng-click="logout()">Logout</a>
     </li>
     <li ng-hide="signedIn()">

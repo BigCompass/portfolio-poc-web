@@ -1,2 +1,23 @@
-<h2>{{ message }}</h2>
-<h2>thing</h2>
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Portfolio</div>
+  <div class="panel-body">
+    <p>This is the panel body</p>
+  </div>
+
+  <!-- Table -->
+  <table ng-show="signedIn"class="table">
+    <tr>
+    	<th>Ticker Symbol</th>
+    	<th>Qty</th>
+    	<th>Current Price</th>
+    	<th>Total Value</th>
+    </tr>
+    <tr>
+    	<td>APL</td>
+    	<td>100.50</td>
+    	<td>504.08</td>
+    	<td>{{ 100.50 * 504.08 }}</td>
+    </tr>
+  </table>
+</div>

@@ -26,6 +26,7 @@ app.factory('Auth', function ($firebaseSimpleLogin, FIREBASE_URL, $rootScope) {
   $rootScope.$on('$firebaseSimpleLogin:login', function(e, user) {
     console.log('logged in');
     angular.copy(user, Auth.user);
+    console.log(Auth.user);
   });
   $rootScope.$on('$firebaseSimpleLogin:logout', function() {
     console.log('logged out');
