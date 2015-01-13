@@ -1,3 +1,6 @@
+/* global app:true */
+/* exported app */
+
 'use strict';
 
 /**
@@ -8,15 +11,17 @@
  *
  * Main module of the application.
  */
-angular
+var app = angular
   .module('portfolioPocWebApp', [
     'ngAnimate',
     'ngCookies',
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'firebase'
   ])
+  .constant('FIREBASE_URL', 'https://bc-portfolio.firebaseio.com/')
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
