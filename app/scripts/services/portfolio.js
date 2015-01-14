@@ -1,6 +1,6 @@
 'use strict';
 
-app.factory('Portfolio', function ($firebase, FIREBASE_URL) {
+app.factory('Portfolio', function ($window, $q, $firebase, FIREBASE_URL, Investment) {
 	var ref = new Firebase(FIREBASE_URL);
 	var portfolios = $firebase(ref.child('portfolios')).$asArray();
 
@@ -18,6 +18,24 @@ app.factory('Portfolio', function ($firebase, FIREBASE_URL) {
 		},
 		delete: function (portfolio) {
 			return portfolio.$remove(portfolio);
+		},
+		getInvestments: function (portfolioId) {
+			var defer = $q.defer();
+
+			$firebase(ref.child('portfolio_investments').child(portfolioId))
+				.$asArray()
+				.$loaded()
+				.then(function(data) {
+					var investments = {};
+
+					for(var i = 0; i < data.length; i++) {
+						var value = data[i].$value;
+						investments[value] = Investment.get(value);
+					}
+					defer.resolve(investments);
+				});
+
+				return defer.promise;
 		}
 	};
 

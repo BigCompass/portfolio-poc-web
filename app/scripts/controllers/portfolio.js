@@ -1,13 +1,8 @@
 'use strict';
 
-app.controller('PortfolioCtrl', function ($scope, Auth, Portfolio, $location) {
+app.controller('PortfolioCtrl', function ($scope, Auth, Portfolio, Investment, $location) {
 	$scope.signedIn = Auth.signedIn;
 	$scope.user = Auth.user;
-
-	$scope.addInvestment = function() {
-		$scope.investment.creator = $scope.user.email;
-		$scope.investment.creatorUID = $scope.user.creatorUID;
-	};
 
 	$scope.createPortfolio = function() {
 		$scope.portfolio.creator = $scope.user.email;

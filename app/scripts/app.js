@@ -52,13 +52,17 @@ var app = angular
         }
       })
       .when('/portfolios/:portfolioId', {
-        templateUrl: 'views/portfolio.html',
-        controller: 'PortfolioCtrl',
+        templateUrl: 'views/portfolioView.html',
+        controller: 'PortfolioViewCtrl',
         resolve: {
           user: function(Auth) {
             return Auth.resolveUser();
           }
         }
+      })
+      .when('/portfolios/:portfolioId/investments/:investmentId', {
+        templateUrl: 'views/investment.html',
+        controller: 'investmentCtrl'
       })
       .when('#/', {
         redirectTo: '/'
