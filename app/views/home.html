@@ -1,7 +1,7 @@
 <div>
-	<h2>Welcome home {{ profile.firstName + '!'}}</h2>
+	<h2 ng-show="signedIn()">Welcome home {{ profile.firstName + '!'}}</h2>
 	<h2 ng-hide="signedIn()">
-	<a ng-href="#/login">Login to get started</a>
+		<a ng-href="#/login">Login to get started</a>
 	</h2>
 	<div ng-show="signedIn()">
 		<h2>Dude! Check out your portfolios!</h2>

@@ -60,6 +60,9 @@ var app = angular
           }
         }
       })
+      .when('#/', {
+        redirectTo: '/'
+      })
       .otherwise({
         redirectTo: '/'
       });

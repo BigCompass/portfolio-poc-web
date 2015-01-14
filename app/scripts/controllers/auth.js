@@ -25,4 +25,10 @@ app.controller('AuthCtrl', function ($scope, $location, Auth, user) {
       $scope.error = error.toString();
     });
   };
+
+  $scope.logout = function () {
+    Auth.logout($scope.user).then(function () {
+      $location.path('#/');
+    });
+  };
 });
