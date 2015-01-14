@@ -1,1 +1,19 @@
-<h2>Welcome home {{name + '!'}}</h2>
+<div>
+	<h2>Welcome home {{ profile.firstName + '!'}}</h2>
+	<h2 ng-hide="signedIn()">
+	<a ng-href="#/login">Login to get started</a>
+	</h2>
+	<div ng-show="signedIn()">
+		<h2>Dude! Check out your portfolios!</h2>
+		<div ng-repeat="portfolio in portfolios">
+			<a ng-href="#/portfolios/{{ portfolio.$id }}">{{ portfolio.name }}</a>
+		</div>
+	</div>
+</div>
+<div ng-show="signedIn()">
+	<p>or, create a new portfolio</p>
+	<form ng-controller="PortfolioCtrl" ng-submit="createPortfolio()">
+		<input type="text" ng-model="portfolio.name">
+		<input type="submit" value="Create Portfolio" class="btn btn-primary" />
+	</form>
+</div>

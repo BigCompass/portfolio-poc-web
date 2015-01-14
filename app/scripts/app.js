@@ -26,7 +26,12 @@ var app = angular
     $routeProvider
       .when('/', {
         templateUrl: 'views/home.html',
-        controller: 'HomeCtrl'
+        controller: 'HomeCtrl',
+        resolve: {
+          user: function(Auth) {
+            return Auth.resolveUser();
+          }
+        }
       })
       .when('/register', {
         templateUrl: 'views/register.html',
@@ -46,7 +51,7 @@ var app = angular
           }
         }
       })
-      .when('/portfolio', {
+      .when('/portfolios/:portfolioId', {
         templateUrl: 'views/portfolio.html',
         controller: 'PortfolioCtrl',
         resolve: {
@@ -56,6 +61,6 @@ var app = angular
         }
       })
       .otherwise({
-        redirectTo: '/login'
+        redirectTo: '/'
       });
   });
