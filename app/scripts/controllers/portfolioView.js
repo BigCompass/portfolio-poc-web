@@ -7,13 +7,7 @@ app.controller('PortfolioViewCtrl', function ($scope, Auth, Portfolio, Investmen
 		$scope.investments = investments;
 	});
 
-	console.log($scope.investments);
-
-	console.log($scope.portfolio);
-
 	$scope.addInvestment = function() {
-	
-		console.log('adding investment');
 
 		var investment = {
 			symbol: $scope.invSymbol,

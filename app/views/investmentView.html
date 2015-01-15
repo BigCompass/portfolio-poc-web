@@ -1,0 +1,9 @@
+<h2>{{ investment.symbol }} x {{ investment.qty }}</h2>
+<a ng-href="#/portfolios/{{portfolioId}}">back to portfolio</a>
+<div>
+	past info
+</div>
+<form ng-submit="getChart()">
+	<input type="text" ng-model="lookupSymbol" placeholder="lookup symbol"></input>
+	<input type="submit">
+</form>

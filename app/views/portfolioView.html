@@ -14,7 +14,7 @@
         <th>Total Value</th>
       </tr>
       <tr ng-repeat="investment in investments">
-        <td>{{ investment.symbol }}</td>
+        <td><a ng-href="#/portfolios/{{portfolio.$id}}/investments/{{investment.$id}}">{{ investment.symbol }}</a></td>
         <td>{{ investment.qty }}</td>
         <td>504.08</td>
         <td>{{ investment.qty * 504.08 }}</td>
